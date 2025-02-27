@@ -24,6 +24,11 @@ public class targetTrigger : MonoBehaviour
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == gameObject.tag)
         {
+            AudioSource audioSource = other.gameObject.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
             scoring.score++;
             Destroy(gameObject);
         }
